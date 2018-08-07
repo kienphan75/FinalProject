@@ -10,6 +10,7 @@ import UIKit
 
 class DetailMangaController: UIViewController {
 
+    @IBOutlet weak var btnShowmore: UIButton!
     @IBOutlet weak var lbTitleNavigation: UILabel!
     @IBOutlet weak var viewDes: UIStackView!
     @IBOutlet weak var viewJTitle: UIStackView!
@@ -34,6 +35,23 @@ class DetailMangaController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func actionShowmore(_ sender: Any) {
+        if viewDes.isHidden{
+            UIView.animate(withDuration: 0.5, delay: 0, options: UIViewAnimationOptions.showHideTransitionViews, animations: {
+                self.viewDes.isHidden = false
+                self.btnShowmore.setTitle("Show less", for: .normal)
+            }, completion: nil)
+        }
+        else{
+            UIView.animate(withDuration: 0.5, delay: 0, options: UIViewAnimationOptions.showHideTransitionViews, animations: {
+                self.viewDes.isHidden = true
+                self.btnShowmore.setTitle("Show more", for: .normal)
+            }) { (m) in
+                
+            }
+            
+        }
+    }
     
     
     var manga: MangaModel?
@@ -46,6 +64,7 @@ class DetailMangaController: UIViewController {
         setUpView()
         setUpTableView()
         viewContent.isHidden = true
+        viewDes.isHidden = true
         if let title = item?.title{
             self.lbTitleNavigation.text = title
         }

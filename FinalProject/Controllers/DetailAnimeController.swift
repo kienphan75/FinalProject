@@ -23,10 +23,31 @@ class DetailAnimeController: UIViewController {
     @IBOutlet weak var lbEnglishTitle: UILabel!
     @IBOutlet weak var lbJapanTitle: UILabel!
     @IBOutlet weak var lbDes: UILabel!
+    @IBOutlet weak var btnShowmore: UIButton!
     
     @IBAction func actionClose(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    @IBAction func actionShowMore(_ sender: Any) {
+        if viewDes.isHidden{
+            UIView.animate(withDuration: 0.5, delay: 0, options: UIViewAnimationOptions.showHideTransitionViews, animations: {
+                self.viewDes.isHidden = false
+                self.btnShowmore.setTitle("Show less", for: .normal)
+            }, completion: nil)
+        }
+        else{
+            UIView.animate(withDuration: 0.5, delay: 0, options: UIViewAnimationOptions.showHideTransitionViews, animations: {
+                self.viewDes.isHidden = true
+                self.btnShowmore.setTitle("Show more", for: .normal)
+            }) { (m) in
+                
+            }
+            
+           
+        }
+    }
+    
+    
     // MARK: - Variables
     var anime : AnimeModel?
     var item: ItemModel?
@@ -34,6 +55,7 @@ class DetailAnimeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewContent.isHidden = true
+        viewDes.isHidden = true
         if let title = item?.title{
             self.lbTitleNavigation.text = title
         }
