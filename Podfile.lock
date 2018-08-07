@@ -1,0 +1,22 @@
+PODS:
+  - BmoViewPager (4.1.3)
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
+
+DEPENDENCIES:
+  - BmoViewPager
+  - SDWebImage
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - BmoViewPager
+    - SDWebImage
+
+SPEC CHECKSUMS:
+  BmoViewPager: cf2e3c251f64872b5c8163365a620f2ef2fccb74
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
+
+PODFILE CHECKSUM: 9a2cd48769359a327c9d0ac63e160b4488644b8b
+
+COCOAPODS: 1.5.3
